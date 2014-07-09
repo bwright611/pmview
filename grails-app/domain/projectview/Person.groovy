@@ -8,6 +8,10 @@ class Person {
     Date dateCreated // Predefined names by Grails will be filled automatically
     Date lastUpdated // Predefined names by Grails will be filled automatically
 
+    static mapping = {
+        tablePerHierarchy false
+    }
+    
     String toString() {
         def name = firstName + " " + lastName
         name 
