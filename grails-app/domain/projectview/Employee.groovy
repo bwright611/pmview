@@ -4,7 +4,8 @@ import projectview.Person
 
 class Employee extends Person {
     Date birthdate
-    SRCJobTitle jobTitle  
+    SRCJobTitle jobTitle 
+    Salary salary
       
     static hasMany = [salary: Salary]
     
@@ -15,5 +16,6 @@ class Employee extends Person {
 
     static constraints = {
         birthdate (blank: false, nullable: false)
+        jobTitle (blank: false, nullable: false)
     }
 }

@@ -38,11 +38,13 @@ class BootStrap {
             job: "Project Manager", phoneNumber: "404-234-5913",
             employer: employer2).save(failOnError: true);
         
+        def salary1 = new Salary(employee: employee1, salary: "150000", from_date: new Date().clearTime() - 30, to_date: new Date().clearTime()).save(failOnError: true);
+        
         def employee1 = new Employee(firstName: "John", lastName: "Employee", email: "bwright@scires.com",
             phoneNumber: "404-234-5913", birthdate: new Date().clearTime() - 50, 
-            employer: employer1, jobTitle: jobTitle1).save(failOnError: true);
+            employer: employer1, jobTitle: jobTitle1, salary: salary1).save(failOnError: true);
                 
-        def salary1 = new Salary(employee: employee1, salary: "150000", from_date: new Date().clearTime() - 30, to_date: new Date().clearTime()).save(failOnError: true);
+        // def salary1 = new Salary(employee: employee1, salary: "150000", from_date: new Date().clearTime() - 30, to_date: new Date().clearTime()).save(failOnError: true);
         
         def contract3820 = new Contract(
                 name: "C4I Software Integration Services",
@@ -50,22 +52,19 @@ class BootStrap {
                 ceiling: 4500000,
                 startDate: new Date().clearTime() - 30,
                 endDate: new Date().clearTime() + 30,
-                commonName: "OPS C2",
-                contractManager: employee1).save(failOnError: true)
+                commonName: "OPS C2").save(failOnError: true)
         def contract2 = new Contract(
                 name: "Software Defined Radio (SDR)",
                 contractNumber: "N65326-08-5803",
                 ceiling: 4500000,
                 startDate: new Date().clearTime() - 30,
                 endDate: new Date().clearTime() + 30,
-                commonName: "Software Defined Radio",
-                contractManager: employee1).save(failOnError: true)            
-        
+                commonName: "Software Defined Radio").save(failOnError: true) 
+                    
         def project1 = new TaskOrder(
                 name: "GCCS-TCO/JTCW Software Integration",
                 jobCode: "D210",
                 contract: contract3820,
-                projectManager: employee1,
                 ceiling: 971028.59, cor: bwPerson,
                 popStart: new Date().clearTime(),
                 popEnd: new Date().clearTime(),
@@ -75,7 +74,6 @@ class BootStrap {
                 name: "TacMobile Software Integration",
                 jobCode: "D211",
                 contract: contract2,
-                projectManager: employee1,
                 popStart: new Date().clearTime(),
                 popEnd: new Date().clearTime(),
                 ceiling: 971028.59, cor: bwPerson,
@@ -85,7 +83,6 @@ class BootStrap {
                 name: "Digital Integration Facility",
                 jobCode: "D214",
                 contract: contract2,
-                projectManager: employee1,
                 popStart: new Date().clearTime(),
                 popEnd: new Date().clearTime(),
                 ceiling: 971028.59, cor: bwPerson,

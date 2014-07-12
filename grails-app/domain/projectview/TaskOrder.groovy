@@ -1,7 +1,6 @@
 package projectview
 
 class TaskOrder {
-    
     String name
     String jobCode              
     Date popStart, popEnd       
@@ -12,6 +11,7 @@ class TaskOrder {
     Date dateCreated, lastUpdated
     
     static belongsTo = [contract: Contract]
+    static hasMany = [charges: Charge]
     
     String toString() { return name }
     
@@ -19,7 +19,7 @@ class TaskOrder {
         name blank: false
         jobCode blank: false, unique: true
         contract blank: false
-        projectManager blank: false
+        projectManager blank: false, nullable: true
         popStart nullable: true
         popEnd nullable: true
         ceiling nullable: true
