@@ -1,7 +1,7 @@
 package projectview
 
 class Charge {
-    TaskOrder task
+    TaskOrder taskOrder
     Employee employee
     BigDecimal hours
     Date fromDate

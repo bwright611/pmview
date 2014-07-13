@@ -38,11 +38,9 @@ class BootStrap {
             job: "Project Manager", phoneNumber: "404-234-5913",
             employer: employer2).save(failOnError: true);
         
-        def salary1 = new Salary(employee: employee1, salary: "150000", from_date: new Date().clearTime() - 30, to_date: new Date().clearTime()).save(failOnError: true);
-        
         def employee1 = new Employee(firstName: "John", lastName: "Employee", email: "bwright@scires.com",
             phoneNumber: "404-234-5913", birthdate: new Date().clearTime() - 50, 
-            employer: employer1, jobTitle: jobTitle1, salary: salary1).save(failOnError: true);
+            employer: employer1, jobTitle: jobTitle1, salary: 32043.34).save(failOnError: true);
                 
         // def salary1 = new Salary(employee: employee1, salary: "150000", from_date: new Date().clearTime() - 30, to_date: new Date().clearTime()).save(failOnError: true);
         

@@ -5,9 +5,9 @@ package projectview
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(ContractController)
-@Mock(Contract)
-class ContractControllerSpec extends Specification {
+@TestFor(ChargeController)
+@Mock(Charge)
+class ChargeControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class ContractControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.contractInstanceList
-            model.contractInstanceCount == 0
+            !model.chargeInstanceList
+            model.chargeInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,32 +30,32 @@ class ContractControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.contractInstance!= null
+            model.chargeInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
-            def contract = new Contract()
-            contract.validate()
-            controller.save(contract)
+            def charge = new Charge()
+            charge.validate()
+            controller.save(charge)
 
         then:"The create view is rendered again with the correct model"
-            model.contractInstance!= null
+            model.chargeInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            contract = new Contract(params)
+            charge = new Charge(params)
 
-            controller.save(contract)
+            controller.save(charge)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/contract/show/1'
+            response.redirectedUrl == '/charge/show/1'
             controller.flash.message != null
-            Contract.count() == 1
+            Charge.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -67,11 +67,11 @@ class ContractControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def contract = new Contract(params)
-            controller.show(contract)
+            def charge = new Charge(params)
+            controller.show(charge)
 
         then:"A model is populated containing the domain instance"
-            model.contractInstance == contract
+            model.chargeInstance == charge
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -83,11 +83,11 @@ class ContractControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def contract = new Contract(params)
-            controller.edit(contract)
+            def charge = new Charge(params)
+            controller.edit(charge)
 
         then:"A model is populated containing the domain instance"
-            model.contractInstance == contract
+            model.chargeInstance == charge
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -96,28 +96,28 @@ class ContractControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/contract/index'
+            response.redirectedUrl == '/charge/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def contract = new Contract()
-            contract.validate()
-            controller.update(contract)
+            def charge = new Charge()
+            charge.validate()
+            controller.update(charge)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.contractInstance == contract
+            model.chargeInstance == charge
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            contract = new Contract(params).save(flush: true)
-            controller.update(contract)
+            charge = new Charge(params).save(flush: true)
+            controller.update(charge)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/contract/show/$contract.id"
+            response.redirectedUrl == "/charge/show/$charge.id"
             flash.message != null
     }
 
@@ -127,23 +127,23 @@ class ContractControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/contract/index'
+            response.redirectedUrl == '/charge/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def contract = new Contract(params).save(flush: true)
+            def charge = new Charge(params).save(flush: true)
 
         then:"It exists"
-            Contract.count() == 1
+            Charge.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(contract)
+            controller.delete(charge)
 
         then:"The instance is deleted"
-            Contract.count() == 0
-            response.redirectedUrl == '/contract/index'
+            Charge.count() == 0
+            response.redirectedUrl == '/charge/index'
             flash.message != null
     }
 }

@@ -4,11 +4,14 @@ import projectview.Person
 
 class Employee extends Person {
     Date birthdate
-    SRCJobTitle jobTitle 
-    Salary salary
-      
-    static hasMany = [salary: Salary]
+    SRCJobTitle jobTitle
+    BigDecimal salary
     
+    String getHourlyRate() { 
+        return salary / 2080 
+    }
+    static transients = ['hourlyRate']
+          
     String toString() {
         def name = firstName + " " + lastName
         name 
