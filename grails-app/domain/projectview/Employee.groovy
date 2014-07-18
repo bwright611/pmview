@@ -5,7 +5,7 @@ import projectview.Person
 class Employee extends Person {
     Date birthdate
     SRCJobTitle jobTitle
-    BigDecimal salary
+    double salary
     
     String getHourlyRate() { 
         return salary / 2080 

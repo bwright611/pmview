@@ -2,10 +2,10 @@ package projectview
 
 class Salary {
     Employee employee
-    BigDecimal salary
+    double salary
     Date from_date
     Date to_date
-    BigDecimal hourlyRate
+    double hourlyRate
     Date dateCreated // Predefined names by Grails will be filled automatically
     Date lastUpdated // Predefined names by Grails will be filled automatically
     

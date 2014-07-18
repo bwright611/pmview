@@ -6,7 +6,7 @@ class Contract {
     String name            
     String commonName      
     String contractNumber  
-    BigDecimal ceiling         
+    double ceiling         
     Employee contractManager 
     Date dateCreated
     Date lastUpdated

@@ -29,9 +29,10 @@
                         <th>Status</th>
                     </tr>
                                         
-                    <g:each in="${taskorderList}" var="task">
+                    <g:each in="${taskOrderInstanceList}" var="task">
                         <g:set var="balance" value="${0l}" />
-                        <g:set var="balance" value="${task.fundedAmt - expended}" />
+                        <g:set var="expended" value="${100.00}" />
+                        <!-- <g:set var="balance" value="${task.fundedAmt - expended}" /> -->
                         <g:set var="percUsed" value="${expended/task.fundedAmt}" />
                         <tr>
                             <td><g:link action="show" id="${task.id}">${task.jobCode}</g:link></td>

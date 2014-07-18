@@ -4,7 +4,7 @@ class TaskOrder {
     String name
     String jobCode              
     Date popStart, popEnd       
-    BigDecimal ceiling, fundedAmt   
+    double ceiling, fundedAmt   
     Contract contract          
     Employee projectManager      
     Person cor
