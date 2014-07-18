@@ -515,7 +515,7 @@
                                     </div>
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive no-padding">
-                                    <table class="table table-hover">
+                                    <!-- <table class="table table-hover">
                                         <tr>
                                             <th>Job Code</th>
                                             <th>Title</th>
@@ -572,7 +572,7 @@
                                             <td>$13,000/month</td>
                                             <td><span class="label label-success">Approved</span></td>
                                         </tr>
-                                    </table>
+                                    </table> -->
                                     
                                     <g:layoutBody/>
                                     
