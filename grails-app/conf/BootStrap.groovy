@@ -32,8 +32,11 @@ class BootStrap {
         def employee1 = new Employee(firstName: "John", lastName: "Employee", email: "jmeploy@example.com",
             phoneNumber: "555-555-5555", birthdate: new Date().clearTime() - 50, 
             employer: employer1, jobTitle: jobTitle1, salary: 32043.34).save(failOnError: true);
-                
+
+        
+        
         // def salary1 = new Salary(employee: employee1, salary: "150000", from_date: new Date().clearTime() - 30, to_date: new Date().clearTime()).save(failOnError: true);
+        
         
         def contract3820 = new Contract(
                 name: "Contract 2",
@@ -44,7 +47,7 @@ class BootStrap {
                 commonName: "Contract2").save(failOnError: true)
         def contract2 = new Contract(
                 name: "Contract 3",
-                contractNumber: "N65326-08-5555",
+                contractNumber: "N65326-08-5556",
                 ceiling: 4500000,
                 startDate: new Date().clearTime() - 30,
                 endDate: new Date().clearTime() + 30,
